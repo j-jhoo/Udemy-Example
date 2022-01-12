@@ -10,6 +10,11 @@ const Expneses = (props) => {
     setFilteredYear(selectedYear);
   };
 
+  // filter사용해서 연도에 맞는 걸로 거를 수 있게 하는 코드
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <div className="expenses">
@@ -17,8 +22,11 @@ const Expneses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {props.items.map((expense) => (
+
+        {/* props.item이 있던 자리에 filter를 사용해서 만든 함수 넣기  */}
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
