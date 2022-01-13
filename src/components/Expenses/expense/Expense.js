@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ExpenseFilter from "../expenseFilter/ExpenseFilter";
-import ExpenseItem from "../expenseitem/ExpenseItem";
+import ExpenseList from "../expenseList/ExpneseList";
 import "./Expense.css";
 
 const Expneses = (props) => {
@@ -22,16 +22,8 @@ const Expneses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-
+        <ExpenseList items={filteredExpenses} />
         {/* props.item이 있던 자리에 filter를 사용해서 만든 함수 넣기  */}
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
       </div>
     </div>
   );
