@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "../../Chart/Chart";
 
 const ExpenseChart = (props) => {
+  // 데이터 목록
   const chartDataPoints = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },
